@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>TalkEase AI</title>
+</head>
+<body style="background: url('{{ url_for('static', filename='images/bg.png') }}');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #0e0d12;">
+<div>
+<section id="navbar">
+	<div class="nav">
+		<div class="icon">
+			<a href="/" ><img src="{{ url_for('static', filename='images/icon.png') }}"></a>
+		</div>
+		<div class="menu">
+			<a class="option" href="#about">About</a>
+			<a class="option" href="#service">Service</a>
+			<a class="option" href="/select_user">Talk</a>
+			<a class="option" href="/instruction">Instruction</a>
+		</div>
+	</div>
+</section>
+
+<section id="hero">
+	<div class="hero-left">
+		<div class="title">TalkEase AI</div>
+		<div class="quote">Empowering communication for disabled people</div>
+		<form action="/select_user">
+			<button type="submit" class="get-started">Get started</button>
+		</form>
+	</div>
+	<div class="hero-right">
+		<img src="{{ url_for('static', filename='images/hero.png') }}">
+	</div>
+</section>
+
+<section id="about">
+	<div class="abt-title">
+		<img src="{{ url_for('static', filename='images/about-title.png') }}">
+	</div>
+	<div class="abt-desc"><p>Our communication system for individuals with physical disabilities is designed to provide accessible and effective communication solutions. We understand the importance of assistive technology in enhancing communication for people with varying degrees of disability. Our system incorporates various peripheral devices and assistive technologies to cater to the unique needs of each individual. </p></div>
+</section>
+
+<section id="service">
+	<div class="service-title">
+		<img src="{{ url_for('static', filename='images/service-title.png') }}">
+	</div>
+	<div class="service-content">
+		<div class="service-card">
+			<img src="{{ url_for('static', filename='images/signdet-img.png') }}">
+			<div class="card-title">
+				Sign Language Detection
+			</div>
+		</div>
+		<div class="service-card">
+			<img src="{{ url_for('static', filename='images/txt-gen.png') }}">
+			<div class="card-title">
+				Text<br>Generation
+			</div>
+		</div>
+		<div class="service-card">
+			<img src="{{ url_for('static', filename='images/speech-gen.png') }}">
+			<div class="card-title">
+				Speech<br>Generation
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="footer">
+	<div class="footer-top">
+		<div class="footer-content">
+			<h1>Quick Links</h1>
+			<p>Home</p>
+			<p>About</p>
+			<p>Service</p>
+			<p>Talk</p>
+			<p>Contact us</p>
+		</div>
+		<div class="image">
+			<img src="{{ url_for('static', filename='images/footer-image.png') }}">
+		</div>
+		<div class="footer-content">
+			<h1>Contact Us</h1>
+			<p>The Tech Pixies</p>
+			<p>123 apple street,</p>
+			<p>Los Angeles</p>
+			<p>8764567820</p>
+			<p>Star_techies@gmail.com</p>
+		</div>
+	</div>
+</section>
+
+</div>
+</body>
+</html>

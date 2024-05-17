@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+	<title>Instructions</title>
+</head>
+<body style="background: url('{{ url_for('static', filename='images/interactionBG.png') }}');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #0e0d12;">
+
+<section id="navbar">
+	<div class="nav">
+		<div class="icon">
+			<a href="/" ><img src="{{ url_for('static', filename='images/icon.png') }}"></a>
+		</div>
+		<div class="menu">
+			<a class="option" href="/">About</a>
+			<a class="option" href="/">Service</a>
+			<a class="option" href="/select_user">Talk</a>
+			<a class="option" href="">Instruction</a>
+		</div>
+	</div>
+</section>
+
+<section id="about">
+	<div class="abt-title">
+		<img src="{{ url_for('static', filename='images/instructiontitle.png') }}">
+	</div>
+	<div class="abt-desc"><p>Navigate to the "Talk" option in the navigation bar or click the "Get Started" button in the hero section of the homepage. Choose the interaction mode that best suits your preferences and click on the "Interact" button. This will lead you to a page tailored to your selected mode of communication. For text mode, enter your text in the provided textbox and click the "Write" button below to convert it into the desired mode. If you prefer speech mode, click on the microphone icon below and begin speaking. To utilize sign language mode, click on the camera icon below, and the camera will activate. Proceed to demonstrate sign language gestures to the camera.</p></div>
+	<form action="/select_user">
+	<button class="get-started proceed" type="submit" >Proceed</button>
+	</form>
+</section>
+
+
+</body>
+</html>

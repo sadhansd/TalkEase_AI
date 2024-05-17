@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/text.css') }}" rel="stylesheet">
+	<title>Deaf to Blind</title>
+</head>
+<body style="background: url('{{ url_for('static', filename='images/interactionBG.png') }}');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #0e0d12;">
+<section id="navbar">
+	<div class="nav">
+		<div class="icon">
+			<a href="/" ><img src="{{ url_for('static', filename='images/icon.png') }}"></a>
+		</div>
+		<div class="menu">
+			<a class="option" href="/">About</a>
+			<a class="option" href="/">Service</a>
+			<a class="option" href="/select_user">Talk</a>
+			<a class="option" href="/instruction">Instruction</a>
+		</div>
+	</div>
+</section>
+
+<section id="interaction">
+	<div class="user-title">
+		<img src="{{ imgUrl }}">
+	</div>
+	
+	<div class="users">
+		<form action="/text_to_speak" method="POST">
+			<div class="user">
+				<img src="{{ url_for('static', filename='images/deaf.png') }}" class="user_icon">
+				<div class="user_txt_box">
+					<textarea name="text">{{ text }}</textarea>
+				</div>
+				<div class="talk">
+					<button type="submit"><img src="{{ url_for('static', filename='images/txt_btn.png') }}"></button>
+				</div>
+			</div>
+		</form>
+		
+		<form action="/speech_to_text" method="POST">
+			<div class="user">
+				<img src="{{ url_for('static', filename='images/blind.png') }}" class="user_icon">
+				<div class="user_txt_box">
+					
+						<img src="{{ url_for('static', filename='images/speaker.png') }}" class="content-box">
+					
+				</div>
+				<div class="talk">
+					<button type="submit"><img src="{{ url_for('static', filename='images/speak_btn.png') }}"></button>
+				</div>
+			</div>
+		</form>
+		
+	</div>
+	
+</section>
+
+</body>
+</html>

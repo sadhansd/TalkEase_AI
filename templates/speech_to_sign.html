@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/text.css') }}" rel="stylesheet">
+	<title>Blind to dumb</title>
+</head>
+<body style="background: url('{{ url_for('static', filename='images/interactionBG.png') }}');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #0e0d12;">
+<section id="navbar">
+	<div class="nav">
+		<div class="icon">
+			<a href="/" ><img src="{{ url_for('static', filename='images/icon.png') }}"></a>
+		</div>
+		<div class="menu">
+			<a class="option" href="/">About</a>
+			<a class="option" href="/">Service</a>
+			<a class="option" href="/select_user">Talk</a>
+			<a class="option" href="/instruction">Instruction</a>
+		</div>
+	</div>
+</section>
+
+<section id="interaction">
+	<div class="user-title">
+		<img src="{{ imgUrl }}">
+	</div>
+
+	<div class="users">
+
+		<form action="/speech_to_sign" method="POST">
+			<div class="user">
+				<img src="{{ url_for('static', filename='images/blind.png') }}" class="user_icon">
+				<div class="user_txt_box">
+
+						<img src="{{ url_for('static', filename='images/speaker.png') }}" class="content-box">
+
+				</div>
+				<div class="talk">
+					<button type="submit"><img src="{{ url_for('static', filename='images/speak_btn.png') }}"></button>
+				</div>
+			</div>
+		</form>
+
+		<div class="user">
+				<img src="{{ url_for('static', filename='images/blind.png') }}" class="user_icon">
+				<div class="user_txt_box">
+<!-- 							<img src="{{ image }}" class="content-box"> -->
+					
+						<img id="sign_display" src="{{ image }}" class="content-box">
+						<img id="webcamFeed" style="display: none;"  src="" alt="Webcam Feed" class="content-box">
+
+<!-- 						<img id="webcamFeed" style="display: none;"  src="" alt="Webcam Feed" class="content-box"> -->
+				
+				</div>
+				<div class="talk">
+					<button onclick="toggleWebcam()" ><img src="{{ url_for('static', filename='images/sign_btn.png') }}"></button>
+				</div>
+			</div>
+
+
+
+	</div>
+
+</section>
+
+</body>
+
+<footer>
+<script>
+		async function toggleWebcam() {
+
+			var signImg = document.getElementById('sign_display');
+			if (signImg.style.display === 'none'){
+				signImg.style.display = 'block';
+			}
+			else {
+                signImg.style.display = 'none';
+            }
+			
+			
+			
+            await fetch('/toggle_webcam_speech');
+            displayImage();
+        }
+
+        function displayImage() {
+        	
+            var imageContainer = document.getElementById('webcamFeed');
+			if (imageContainer.style.display === 'none'){
+				imageContainer.src = '{{ url_for('video_feed') }}';
+				imageContainer.style.display = 'block';
+			}
+			else {
+                imageContainer.style.display = 'none';
+            }
+        }
+	</script>
+</footer>
+
+</html>
